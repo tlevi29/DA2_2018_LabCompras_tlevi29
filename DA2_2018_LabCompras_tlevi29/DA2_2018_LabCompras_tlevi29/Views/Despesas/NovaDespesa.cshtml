@@ -1,0 +1,44 @@
+﻿@model DA2_2018_LabCompras_tlevi29.Models.Despesa
+@{
+    ViewData["Title"] = "Nova Despesa";
+}
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2 class="text-center"><strong>Nova Despesa</strong></h2>
+        <form asp-action="NovaDespesa" class="well" method="post">
+            <div asp-validation-summary="All"></div>
+            <p>
+                <label asp-for="NomeDespesa">Nome:</label>
+                <input asp-for="NomeDespesa" class="form-control" />
+            </p>
+            <p>
+                <label asp-for="Quantidade">Quantidade:</label>
+                <input asp-for="Quantidade" value="1" class="form-control" />
+            </p>
+            <p>
+                <label asp-for="Valor">Valor:</label>
+                <input asp-for="Valor" class="form-control" />
+            </p>
+            <p>
+                <label asp-for="Categoria">Categoria:</label>
+                <select asp-for="Categoria" class="form-control">
+                    <option value="Alimentar">Alimentar</option>
+                    <option value="Roupa">Roupa</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Pessoal">Pessoal</option>
+                </select>
+            </p>
+            <p>
+                <label asp-for="Pago">Pago:</label>
+                <select asp-for="Pago" class="form-control">
+                    <option value="True">Sim</option>
+                    <option value="False" selected="selected">Não</option>
+                </select>
+            </p>
+            <p class="text-center"><button class="btn btn-success btn-lg" type="submit"><span class="glyphicon glyphicon-plus"></span> Adicionar Despesa</button></p>
+        </form>
+        <div class="col-md-3"></div>
+    </div>
+</div>
