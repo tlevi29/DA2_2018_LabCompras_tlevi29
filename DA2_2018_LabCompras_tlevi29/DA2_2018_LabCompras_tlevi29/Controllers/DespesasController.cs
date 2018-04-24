@@ -9,10 +9,10 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
 {
     public class DespesasController : Controller
     {
-        public IActionResult Despesa()
+        public IActionResult Index()
         {
             List<Despesa> despesas = Repository.Despesa;
-            return View();
+            return View (despesas);
         }
 
         [HttpGet]
@@ -38,6 +38,11 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
             return View();
         }
 
+        public IActionResult LimparDespesas()
+        {
+            Repository.ClearDespesas();
+            return View("Index", Repository.Despesa);
+        }
 
     }
 }

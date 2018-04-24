@@ -9,9 +9,10 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
 {
     public class ContaController : Controller
     {
-        public IActionResult Conta()
+        public IActionResult Index()
         {
-            return View();
+            List<Conta> contas = Repository.Contas;
+            return View(contas);
         }
 
         [HttpGet]
@@ -25,6 +26,7 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
         {
             if (ModelState.IsValid)
             {
+                Repository.AddConta(c);
                 return View("ContaConfirmada", c);
             }
             else
@@ -34,6 +36,12 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
         public IActionResult ContaConfirmada()
         {
             return View();
+        }
+
+        public IActionResult LimparContas()
+        {
+            Repository.ClearContas();
+            return View ("Index", Repository.Contas);
         }
 
 
