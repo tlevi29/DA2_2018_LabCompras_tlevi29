@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DA2_2018_LabCompras_tlevi29.Models
 {
@@ -39,6 +36,5 @@ namespace DA2_2018_LabCompras_tlevi29.Models
         {
             contas.Clear();
         }
-
     }
 }

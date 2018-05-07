@@ -2,15 +2,13 @@
 @{
     ViewData["Title"] = "Despesa Confirmada";
 }
-
 <h2><strong>Despesa Confirmada</strong></h2>
-
 <div class="row">
     <div class="col-md-8">
         <div class="well">
             <p><strong>Nome: </strong>@Model.NomeDespesa</p>
-            <p><strong>Quantidade: </strong>@Model.Quantidade</p>
-            <p><strong>Valor: </strong>@Model.Valor</p>
+            <p><strong>Quantidade: </strong>@Model.Quantidade un.</p>
+            <p><strong>Valor: </strong>@Model.Valor €</p>
             <p><strong>Categoria: </strong>@Model.Categoria</p>
             <p>
                 <strong>Pago: </strong>
@@ -24,6 +22,9 @@
                 }
             </p>
         </div>
-        <p class="text-center"><a asp-action="NovaDespesa">Voltar</a></p>
+        <div class="row">
+            <a asp-action="NovaDespesa" class="text-center col-md-6">Adicionar nova despesa <span class="glyphicon glyphicon-plus"></span></a>
+            <a asp-action="Index" class="text-center col-md-6">Lista de despesas <span class="glyphicon glyphicon-eye-open"></span></a>
+        </div>
     </div>
 </div>

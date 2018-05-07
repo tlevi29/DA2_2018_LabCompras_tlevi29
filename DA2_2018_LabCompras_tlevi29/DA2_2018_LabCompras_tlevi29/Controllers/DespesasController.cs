@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using DA2_2018_LabCompras_tlevi29.Models;
 
@@ -11,8 +8,8 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
     {
         public IActionResult Index()
         {
-            List<Despesa> despesas = Repository.Despesa;
-            return View (despesas);
+            List<Despesa> despesas = Repository.Despesa; /*Mostrar os dados guardados da lista*/
+            return View (despesas); /*retornar na View o objeto "despesas"*/
         }
 
         [HttpGet]
@@ -26,7 +23,7 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
         {
             if (ModelState.IsValid)
             {
-                Repository.AddDespesa(d);
+                Repository.AddDespesa(d); /*Guardar na lista os dados introduzido no formulário*/
                 return View("DespesaConfirmada", d);
             }
             else
@@ -43,6 +40,5 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
             Repository.ClearDespesas();
             return View("Index", Repository.Despesa);
         }
-
     }
 }

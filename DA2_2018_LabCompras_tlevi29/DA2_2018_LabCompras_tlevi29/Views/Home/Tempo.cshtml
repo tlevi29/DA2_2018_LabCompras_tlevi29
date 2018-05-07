@@ -1,0 +1,37 @@
+﻿@model WeatherApiResponse
+@{
+    ViewData["Title"] = "Tempo";
+}
+
+<h1 class="text-center"><b>Tempo</b></h1>
+<div class="row">
+    <div class="well col-md-6">
+        <table>
+            <tr>
+                <td class="col-md-6"><strong>Local: </strong></td>
+                <td class="col-md-6">@Model.Location.Name, @Model.Location.Country</td>
+            </tr>
+            <tr>
+                <td class="col-md-6"><strong>Temperatura:</strong></td>
+                <td class="col-md-6">@Model.Current.Temp_c °C</td>
+            </tr>
+            <tr>
+                <td class="col-md-6"><strong>Estado:</strong></td>
+                <td class="col-md-6">@Model.Current.Condition.Text<img src="@Model.Current.Condition.Icon" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <form asp-action="Tempo" method="post" class="form-group well text-center">
+            @*<p>
+                <label asp-for="Location.Name">Cidade</label>
+                <input asp-for="Location.Name" class="form-control" />
+            </p>*@
+            <p>
+                <label>Cidade</label>
+                <input name="cidade" class="form-control" placeholder="Introduza o nome da cidade..." />
+            </p>
+            <button class="btn btn-success btn-lg" type="submit"><span class="glyphicon glyphicon-sunglasses"></span> Ver Tempo <span class="glyphicon glyphicon-cloud"></span></button>
+        </form>
+    </div>
+</div>
