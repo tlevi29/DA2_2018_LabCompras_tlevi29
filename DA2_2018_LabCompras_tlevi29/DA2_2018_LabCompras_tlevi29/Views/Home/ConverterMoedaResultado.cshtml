@@ -1,0 +1,23 @@
+﻿@model ConvertApiResponse
+@{
+    ViewData["Title"] = "Conversão Resultado";
+}
+
+<h2>Resultado da Conversão</h2>
+<div class="row">
+    <div class="col-md-4 well">
+        <table>
+            <tr>
+                <td class="col-md-4"><strong>Amount:</strong></td>
+                <td class="col-md-4 text-center">@Model.Amount</td>
+                <td class="col-md-4">@Model.From</td>
+            </tr>
+            <tr>
+                <td class="col-md-4"><strong>Result:</strong></td>
+                <td class="col-md-4 text-center">@Model.ConvertedAmount</td>
+                <td class="col-md-4">@Model.To</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<a asp-action="ConverterMoeda" class="btn btn-primary btn-lg">Voltar</a>

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace DA2_2018_LabCompras_tlevi29.Models
 {
-    public class MyHTTPClient
+    public class MyConvertHttpClient
     {
-        private static string baseAddress = "http://api.apixu.com";        private static HttpClient client;
+        private static string baseAddress = "http://193.137.46.2";        private static HttpClient client;
         public static HttpClient Client
         {
             get
@@ -24,6 +24,5 @@ namespace DA2_2018_LabCompras_tlevi29.Models
                 return client;
             }
         }
-
     }
 }

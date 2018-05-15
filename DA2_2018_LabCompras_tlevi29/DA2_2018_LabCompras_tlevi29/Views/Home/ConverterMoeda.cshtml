@@ -1,0 +1,27 @@
+﻿@model ConvertAPIrequest
+@{
+    ViewData["Title"] = "Converter Moeda";
+}
+
+<h1>Converter Moeda</h1>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 well">
+        <form asp-action="ConverterMoeda" class="form-group" method="post">
+            <p>
+                <label asp-for="Amount">Amount</label>
+                <input asp-for="Amount" class="form-control" />
+            </p>
+            <p>
+                <label asp-for="From">From</label>
+                <input asp-for="From" class="form-control" />
+            </p>
+            <p>
+                <label asp-for="To">To</label>
+                <input asp-for="To" class="form-control" />
+            </p>
+            <button type="submit" class="btn btn-success btn-lg center-block">Converter</button>
+        </form>
+    </div>
+</div>
