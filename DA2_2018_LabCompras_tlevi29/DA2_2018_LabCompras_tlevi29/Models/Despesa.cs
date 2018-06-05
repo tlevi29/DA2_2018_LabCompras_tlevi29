@@ -8,6 +8,7 @@ namespace DA2_2018_LabCompras_tlevi29.Models
 {
     public class Despesa
     {
+        public int DespesaID { get; set; }
         [Required(ErrorMessage = "Por favor itroduza o nome da despesa")]
         public string NomeDespesa { get; set; }
         public int Quantidade { get; set; }

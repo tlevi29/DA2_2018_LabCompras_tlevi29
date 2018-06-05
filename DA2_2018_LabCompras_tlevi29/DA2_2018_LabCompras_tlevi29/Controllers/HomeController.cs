@@ -69,7 +69,7 @@ namespace DA2_2018_LabCompras_tlevi29.Controllers
             HttpClient client = MyConvertHttpClient.Client;
             string path = "/api/CurrencyConvert";
 
-            ConvertAPIrequest req = new ConvertAPIrequest(amount, from, to);
+            ConvertApiRequest req = new ConvertApiRequest(amount, from, to);
             string json = JsonConvert.SerializeObject(req);
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, path);

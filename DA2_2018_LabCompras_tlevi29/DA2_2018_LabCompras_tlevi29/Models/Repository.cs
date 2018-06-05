@@ -14,6 +14,9 @@ namespace DA2_2018_LabCompras_tlevi29.Models
 
         public static void AddDespesa(Despesa newDespesa)
         {
+            int n = despesas.Count + 1;
+            newDespesa.DespesaID = n;
+
             despesas.Add(newDespesa);
         }
         
@@ -24,6 +27,7 @@ namespace DA2_2018_LabCompras_tlevi29.Models
 
         public static void AddConta(Conta newContas)
         {
+            
             contas.Add(newContas);
         }
 
@@ -35,6 +39,26 @@ namespace DA2_2018_LabCompras_tlevi29.Models
         public static void ClearContas()
         {
             contas.Clear();
+        }
+
+        public static Despesa GetDespesas(int id)
+        {
+            foreach (Despesa expense in despesas)
+            {
+                if (expense.DespesaID == id)
+                    return expense;
+            }
+            return null;
+        }
+
+        public static Conta GetContas(string name)
+        {
+            foreach (Conta accaunt in contas)
+            {
+                if (accaunt.NomeTitular == name)
+                    return accaunt;
+            }
+            return null;
         }
     }
 }

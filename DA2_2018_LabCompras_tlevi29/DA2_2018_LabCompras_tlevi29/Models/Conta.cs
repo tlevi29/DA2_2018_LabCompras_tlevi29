@@ -16,5 +16,12 @@ namespace DA2_2018_LabCompras_tlevi29.Models
 
         public Conta()
         { }
+
+        public Conta(string nomeTitular, int saldo)
+        {
+            nomeTitular = NomeTitular;
+            Saldo = saldo;
+            Ativa = true;
+        }
     }
 }
