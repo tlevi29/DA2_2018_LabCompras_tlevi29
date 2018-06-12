@@ -4,61 +4,91 @@ namespace DA2_2018_LabCompras_tlevi29.Models
 {
     public static class Repository
     {
-        private static List<Despesa> despesas = new List<Despesa>();
-        private static List<Conta> contas = new List<Conta>();
-
         public static List<Despesa> Despesa
         {
-            get { return despesas; }
+            get
+            {
+                LabComprasDbContext context = new LabComprasDbContext();
+                return null;
+               // List<Despesa> despesas = context.Despesas.;
+                //return despesas;
+            }
+        }
+
+        public static List<Conta> Contas
+        {
+            get
+            {
+                LabComprasDbContext context = new LabComprasDbContext();
+                // List<Conta> contas = context.Contas.ToList();
+                //return contas;
+                return null;
+            }
         }
 
         public static void AddDespesa(Despesa newDespesa)
         {
-            int n = despesas.Count + 1;
-            newDespesa.DespesaID = n;
+            LabComprasDbContext context = new LabComprasDbContext();
+            context.Despesas.Add(newDespesa);
+            context.SaveChanges();
 
-            despesas.Add(newDespesa);
-        }
-        
-        public static List<Conta> Contas
-        {
-           get { return contas; }
+           // int n = despesas.Count + 1; //ApiServer
+          //  newDespesa.DespesaID = n;
+
         }
 
         public static void AddConta(Conta newContas)
         {
-            
-            contas.Add(newContas);
+            LabComprasDbContext context = new LabComprasDbContext();
+            context.Contas.Add(newContas);
+            context.SaveChanges();
         }
 
         public static void ClearDespesas()
         {
-            despesas.Clear();
+        //    despesas.Clear();
         }
 
         public static void ClearContas()
         {
-            contas.Clear();
+           // contas.Clear();
         }
 
         public static Despesa GetDespesas(int id)
         {
-            foreach (Despesa expense in despesas)
-            {
-                if (expense.DespesaID == id)
-                    return expense;
-            }
+            //foreach (Despesa expense in despesas)
+            //{
+            //    if (expense.DespesaID == id)
+            //        return expense;
+            //}
             return null;
         }
 
         public static Conta GetContas(string name)
         {
-            foreach (Conta accaunt in contas)
-            {
-                if (accaunt.NomeTitular == name)
-                    return accaunt;
-            }
+            //foreach (Conta accaunt in contas)
+            //{
+            //    if (accaunt.NomeTitular == name)
+            //        return accaunt;
+            //}
             return null;
         }
     }
 }
+
+
+//public static List<Product> Products
+//{
+//    get
+//    {
+//        AppProdutosDbContext context = new AppProdutosDbContext();
+//        List<Product> products = context.Products.ToList();
+//        return products;
+//    }
+//}
+//public static void AddProduct(Product newProduct)
+//{
+//    AppProdutosDbContext context = new AppProdutosDbContext();
+//    context.Products.Add(newProduct);
+//    context.SaveChanges();
+//}
