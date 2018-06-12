@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DA2_2018_LabCompras_tlevi29.Models
 {
@@ -9,9 +13,8 @@ namespace DA2_2018_LabCompras_tlevi29.Models
             get
             {
                 LabComprasDbContext context = new LabComprasDbContext();
-                return null;
-               // List<Despesa> despesas = context.Despesas.;
-                //return despesas;
+                List<Despesa> despesas = context.Despesas.ToList();
+                return despesas;
             }
         }
 
@@ -20,9 +23,8 @@ namespace DA2_2018_LabCompras_tlevi29.Models
             get
             {
                 LabComprasDbContext context = new LabComprasDbContext();
-                // List<Conta> contas = context.Contas.ToList();
-                //return contas;
-                return null;
+                List<Conta> contas = context.Contas.ToList();
+                return contas;
             }
         }
 
@@ -32,8 +34,8 @@ namespace DA2_2018_LabCompras_tlevi29.Models
             context.Despesas.Add(newDespesa);
             context.SaveChanges();
 
-           // int n = despesas.Count + 1; //ApiServer
-          //  newDespesa.DespesaID = n;
+            int n = Despesa.Count + 1; //ApiServer
+            newDespesa.DespesaID = n;
 
         }
 
@@ -46,31 +48,31 @@ namespace DA2_2018_LabCompras_tlevi29.Models
 
         public static void ClearDespesas()
         {
-        //    despesas.Clear();
+            Despesa.Clear();
         }
 
         public static void ClearContas()
         {
-           // contas.Clear();
+            Contas.Clear();
         }
 
         public static Despesa GetDespesas(int id)
         {
-            //foreach (Despesa expense in despesas)
-            //{
-            //    if (expense.DespesaID == id)
-            //        return expense;
-            //}
+            foreach (Despesa expense in Despesa)
+            {
+                if (expense.DespesaID == id)
+                    return expense;
+            }
             return null;
         }
 
         public static Conta GetContas(string name)
         {
-            //foreach (Conta accaunt in contas)
-            //{
-            //    if (accaunt.NomeTitular == name)
-            //        return accaunt;
-            //}
+            foreach (Conta accaunt in Contas)
+            {
+                if (accaunt.NomeTitular == name)
+                    return accaunt;
+            }
             return null;
         }
     }

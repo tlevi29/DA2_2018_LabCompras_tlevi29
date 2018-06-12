@@ -16,9 +16,6 @@ namespace DA2_2018_LabCompras_tlevi29.Models
             string connection =
             @"Server=(localdb)\mssqllocaldb;Database=LABCOMPRAS_BD_2018; Trusted_Connection=True;";
             optionsBuilder.UseSqlServer(connection);
-
-
-
         }
     }
 }
